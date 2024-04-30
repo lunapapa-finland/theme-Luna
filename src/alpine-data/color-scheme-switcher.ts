@@ -2,8 +2,8 @@ import { currentColorScheme } from "../main";
 
 export default () => ({
   colorSchemes: [
-    { label: "暗色", value: "dark", icon: "i-gg-moon" },
-    { label: "亮色", value: "light", icon: "i-gg-sun" },
+    { label: "dark", value: "dark", icon: "i-gg-moon" },
+    { label: "light", value: "light", icon: "i-gg-sun" },
   ],
   currentValue: currentColorScheme,
   get colorScheme() {

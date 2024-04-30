@@ -31,7 +31,7 @@
             class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
             th:href="@{${archives.prevUrl}}"
           >
-            上一页
+            Prev
           </a>
         </li>
         <template x-for="item in items">
@@ -59,14 +59,14 @@
             class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
             th:href="@{${archives.nextUrl}}"
           >
-            下一页
+            Next
           </a>
         </li>
       </ul>
     </div>
 
     <div th:if="${archives.total == 0}" class="mt-6 flex items-center justify-center">
-      <span class="text-sm font-light text-gray-600">当前没有文章</span>
+      <span class="text-sm font-light text-gray-600">There are currently no articles.</span>
     </div>
   </th:block>
 </html>

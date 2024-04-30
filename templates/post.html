@@ -46,13 +46,13 @@
                 class="text-sm font-semibold text-zinc-900 dark:text-zinc-100"
                 th:text="${not #strings.isEmpty(theme.config.layout.common_author) ? theme.config.layout.common_author : page.owner.displayName}"
               ></span>
-              <span th:text="${'发布于 '+#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"></span>
+              <span th:text="${'Publishing Time: '+#dates.format(post.spec.publishTime,'yyyy-MM-dd')}"></span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span th:text="${post.stats.visit}+' 阅读'"></span>
+              <span th:text="${post.stats.visit}+' Read'"></span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span th:text="${post.stats.comment}+ ' 评论'"> </span>
+              <span th:text="${post.stats.comment}+ ' Comment'"> </span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span x-text="likeNum + ' 点赞'"> </span>
+              <span x-text="likeNum + ' Like'"> </span>
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@
             th:title="${postCursor.previous.spec.title}"
           >
             <span class="i-tabler-chevron-left translate-x-1 text-lg transition-all group-hover:-translate-x-0"></span>
-            <span>上一篇:</span>
+            <span>Prev</span>
             <span th:text="${#strings.abbreviate(postCursor.previous.spec.title,25)}"></span>
           </a>
         </div>
@@ -118,7 +118,7 @@
             th:href="@{${postCursor.next.status.permalink}}"
             th:title="${postCursor.next.spec.title}"
           >
-            <span>下一篇:</span>
+            <span>Next</span>
             <span th:text="${#strings.abbreviate(postCursor.next.spec.title,25)}"></span>
             <span class="i-tabler-chevron-right -translate-x-1 text-lg transition-all group-hover:translate-x-0"></span>
           </a>
@@ -127,7 +127,7 @@
       <hr class="my-10 dark:border-zinc-700" />
       <!-- https://github.com/halo-sigs/plugin-comment-widget -->
       <div th:if="${site.comment.enable} and ${pluginFinder.available('PluginCommentWidget')}">
-        <h2 class="mb-2 text-base font-medium text-zinc-900 dark:text-zinc-50">评论</h2>
+        <h2 class="mb-2 text-base font-medium text-zinc-900 dark:text-zinc-50">Comment</h2>
         <halo:comment
           group="content.halo.run"
           kind="Post"
@@ -155,13 +155,13 @@
           <a
             class="group inline-flex items-center gap-2 text-base text-zinc-600 transition-all hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-300"
             href="/"
-          >返回首页 /</a
+          >Home /</a
           >
           <a
             class="group inline-flex items-center gap-2 text-base text-zinc-600 transition-all hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-300"
             href="javascript:;"
             onclick="javascript:history.back(-1)"
-          >返回上一页
+          >Back
           </a>
         </h2>
       </div>
@@ -171,7 +171,7 @@
       >
         <h2 class="inline-flex items-center gap-2 text-base dark:text-zinc-50">
           <span class="i-tabler-list text-lg"></span>
-          目录
+          Table of Contents
         </h2>
         <div class="toc mt-2"></div>
       </div>

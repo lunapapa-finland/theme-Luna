@@ -25,13 +25,13 @@
               th:text="${not #strings.isEmpty(theme.config.layout.common_author) ? theme.config.layout.common_author : singlePage.owner.displayName}"
             ></span>
             <div class="flex items-center gap-2 text-xs font-light text-zinc-600 dark:text-zinc-100">
-              <span th:text="${'发布于 '+#dates.format(singlePage.spec.publishTime,'yyyy-MM-dd')}"></span>
+              <span th:text="${'Publishing Time: '+#dates.format(singlePage.spec.publishTime,'yyyy-MM-dd')}"></span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span th:text="${singlePage.stats.visit}+' 阅读'"></span>
+              <span th:text="${singlePage.stats.visit}+' Read'"></span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span th:text="${singlePage.stats.comment}+ ' 评论'"> </span>
+              <span th:text="${singlePage.stats.comment}+ ' Comment'"> </span>
               <span class="text-zinc-300 dark:text-zinc-200">/</span>
-              <span th:text="${singlePage.stats.upvote}+' 点赞'"> </span>
+              <span th:text="${singlePage.stats.upvote}+' like'"> </span>
             </div>
           </div>
         </div>
@@ -59,7 +59,7 @@
       <hr class="my-10 dark:border-zinc-700" />
       <!-- https://github.com/halo-sigs/plugin-comment-widget -->
       <div th:if="${pluginFinder.available('PluginCommentWidget')}">
-        <h2 class="mb-2 text-base font-medium text-zinc-900 dark:text-zinc-50">评论</h2>
+        <h2 class="mb-2 text-base font-medium text-zinc-900 dark:text-zinc-50">Comment</h2>
         <halo:comment
           group="content.halo.run"
           kind="SinglePage"

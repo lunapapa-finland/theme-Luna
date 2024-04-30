@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html
   xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{modules/layout :: html(title = '分类：' + ${category.spec.displayName} + ' - ' + ${site.title}, header = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null, isSidebar = true)}"
+  th:replace="~{modules/layout :: html(title = 'Categories - ' + ${category.spec.displayName} + ' - ' + ${site.title}, header = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null, isSidebar = true)}"
 >
   <th:block th:fragment="content">
     <th:block th:replace="~{modules/category-filter}" />
@@ -27,7 +27,7 @@
             class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
             th:href="@{${posts.prevUrl}}"
           >
-            上一页
+            Prev
           </a>
         </li>
         <template x-for="item in items">
@@ -55,14 +55,14 @@
             class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
             th:href="@{${posts.nextUrl}}"
           >
-            下一页
+            Next
           </a>
         </li>
       </ul>
     </div>
 
     <div th:if="${posts.total == 0}" class="mt-6 flex items-center justify-center">
-      <span class="text-sm font-light text-zinc-600 dark:text-zinc-200">此分类下没有文章</span>
+      <span class="text-sm font-light text-zinc-600 dark:text-zinc-200">The category currently has no articles.</span>
     </div>
   </th:block>
 </html>

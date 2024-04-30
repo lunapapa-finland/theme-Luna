@@ -99,14 +99,14 @@
                 class="cursor-pointer text-lg text-gray-600 transition-all hover:text-blue-600 dark:text-slate-100"
                 :class="colorScheme.icon"
                 @click="[main.setColorScheme(nextColorScheme.value,true), currentValue = nextColorScheme.value]"
-                :title="`当前主题：${colorScheme.label}，点击切换为：${nextColorScheme.label}`"
+                :title="`Current Theme：${colorScheme.label}，Click to change：${nextColorScheme.label}`"
               ></div>
             </li>
             <!-- https://github.com/halo-sigs/plugin-search-widget -->
             <li th:if="${pluginFinder.available('PluginSearchWidget')}">
               <a
                 href="javascript:SearchWidget.open()"
-                title="搜索"
+                title="Search"
                 class="text-zinc-600 hover:text-blue-600 dark:text-zinc-100"
               >
                 <div class="i-tabler-search text-lg"></div>
@@ -170,7 +170,7 @@
                       href="/uc"
                       target="_blank"
                     >
-                      个人资料
+                      Personal Info
                     </a>
                   </li>
                   <li
@@ -182,7 +182,7 @@
                       href="/console"
                       target="_blank"
                     >
-                      控制台
+                      Console
                     </a>
                   </li>
                   <li
@@ -193,7 +193,7 @@
                       class="h-full w-full truncate px-4 py-2 text-gray-600 hover:text-blue-600 dark:text-zinc-50 dark:hover:text-gray-300"
                       href="/logout"
                     >
-                      退出登录
+                      Logout
                     </a>
                   </li>
                   <li
@@ -204,7 +204,7 @@
                       class="h-full w-full truncate px-4 py-2 text-gray-600 hover:text-blue-600 dark:text-zinc-50 dark:hover:text-gray-300"
                       href="/console/login"
                     >
-                      登录
+                      Login
                     </a>
                   </li>
                 </ul>
@@ -258,7 +258,7 @@
                     stroke-linejoin="round"
                   ></circle>
                 </svg>
-                输入关键字
+                Key Words
               </button>
             </div>
             <div
@@ -266,7 +266,7 @@
               th:if="${not #lists.isEmpty(theme.config.banner.tags)}"
             >
               <p>
-                热门查询：
+                Popular queries:
                 <th:block th:each="tag,tagStat : ${theme.config.banner.tags}">
                   <th:block th:with="tagInfo = ${tagFinder.getByName(tag)}" th:if="${tagStat.index lt 3}">
                     <span>
@@ -288,7 +288,7 @@
                 x-model="keys"
                 @keyup.enter="keywords"
                 class="dark:highlight-white/5 flex w-full items-center rounded-full bg-[#F1F3F4] py-1.5 pl-12 pr-3 text-sm leading-6 text-zinc-400 shadow-sm ring-1 ring-slate-900/10 focus:bg-white focus:shadow-2xl focus:outline-none focus:ring-2 dark:bg-zinc-800"
-                placeholder="输入关键字"
+                placeholder="Key Words"
               />
               <template x-if="keys">
                 <button
@@ -317,7 +317,7 @@
               </template>
               <button
                 class="left absolute left-[2px] top-[2px] h-[32px] w-[33px] rounded-3xl p-[5px] text-[#666] opacity-[.85] hover:bg-[#efebeb] dark:hover:bg-zinc-400"
-                aria-label="搜索支持中心"
+                aria-label="Search Center"
                 role="button"
                 x-on:click="keywords"
               >
@@ -346,7 +346,7 @@
               th:if="${not #lists.isEmpty(theme.config.banner.tags)}"
             >
               <p>
-                热门查询：
+                Popular queries:
                 <th:block th:each="tag,tagStat : ${theme.config.banner.tags}">
                   <span th:with="tagInfo = ${tagFinder.getByName(tag)}" th:if="${tagStat.index lt 3}">
                     <a
@@ -403,7 +403,7 @@
           tabindex="0"
           @click="open = false"
         ></button>
-        <h2 class="text-sm font-medium text-gray-600 dark:text-slate-300">菜单</h2>
+        <h2 class="text-sm font-medium text-gray-600 dark:text-slate-300">Menu</h2>
       </div>
       <nav class="mt-6">
         <ul class="-my-2 divide-y divide-gray-100 text-sm text-gray-800 dark:divide-slate-800 dark:text-slate-100">

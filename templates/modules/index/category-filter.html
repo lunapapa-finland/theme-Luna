@@ -3,7 +3,7 @@
     class="mt-16 mb-8 text-center text-3xl font-light text-[#333] dark:text-zinc-200"
     th:text="${theme.config.index.module_one}"
   >
-    按产品浏览
+    Browse by Product
   </h2>
   <ul
     th:with="categories = ${categoryFinder.listAsTree()},list_layout=${theme.config.index.module_one_layout}"

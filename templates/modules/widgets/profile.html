@@ -13,25 +13,25 @@
     <div class="grid grid-cols-4 gap-5">
       <div class="inline-flex flex-col items-center">
         <span class="text-xl font-medium tabular-nums text-zinc-900 dark:text-zinc-100" th:text="${stats.post}"></span>
-        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">文章数</span>
+        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">Number of Articles</span>
       </div>
       <div class="inline-flex flex-col items-center">
         <span
           class="text-xl font-medium tabular-nums text-zinc-900 dark:text-zinc-100"
           th:text="${stats.category}"
         ></span>
-        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">分类数</span>
+        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">Number of Categories</span>
       </div>
       <div class="inline-flex flex-col items-center">
         <span
           class="text-xl font-medium tabular-nums text-zinc-900 dark:text-zinc-100"
           th:text="${stats.comment}"
         ></span>
-        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">评论数</span>
+        <span class="text-xs font-light text-zinc-600 dark:text-zinc-300">Number of Comments</span>
       </div>
       <div class="inline-flex flex-col items-center">
         <span class="text-xl font-medium tabular-nums text-zinc-900 dark:text-zinc-100" th:text="${stats.visit}"></span
-        ><span class="text-xs font-light text-zinc-600 dark:text-zinc-300">访问量</span>
+        ><span class="text-xs font-light text-zinc-600 dark:text-zinc-300">Number of Visits</span>
       </div>
     </div>
     <div th:with="social_medias = ${theme.config.sidebar.social_media}" class="grid grid-cols-6 items-center gap-5">
