@@ -205,4 +205,27 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// WhatsAPP 
+document.addEventListener("DOMContentLoaded", () => {
+  const whatsappIcon = document.getElementById('whatsappIcon');
+  const backToTop = document.getElementById('back-to-top');
+  const backToDown = document.getElementById('back-to-down');
+
+  window.onscroll = () => {
+      const scrolled = document.body.scrollTop > 50 || document.documentElement.scrollTop > 50;
+      
+      if (whatsappIcon) {
+          whatsappIcon.style.display = scrolled ? "block" : "none";
+      }
+      if (backToTop) {
+          backToTop.style.display = scrolled ? "block" : "none";
+      }
+      if (backToDown) {
+          backToDown.style.display = scrolled ? "block" : "none";
+      }
+  };
+});
+
+
+
 

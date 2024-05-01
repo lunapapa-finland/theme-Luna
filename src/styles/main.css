@@ -81,3 +81,24 @@ body {
 }
 
 /*a标签增加指上下划线*/
+
+/*WhatsApp*/
+.whatsapp_float {
+  position: fixed;
+  bottom: 4rem; 
+  right: 30px;
+  z-index: 1000;
+}
+
+.whatsapp_float img {
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  box-shadow: 2px 2px 3px #999;
+}
+
+
+
+
+
+/*WhatsApp*/

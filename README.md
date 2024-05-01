@@ -53,7 +53,13 @@ TBD
 - Banner
   - Add Video Representation for configuration and representation.
   - Add Image Looping and corresponding configuration
+  - Add Whatsapp Support
 - TBD
+  - L: AI digest
+  - M: Share Page on article
+  - M: 404 page
+  - H: template for product publishing
+  - H: Refer to Banner 左侧 for embedding block
 
 ## Contributing to the Customization
 

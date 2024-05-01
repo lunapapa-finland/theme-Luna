@@ -516,6 +516,15 @@ spec:
                 - label: 图片
                   value: image
 
+    - group: contact
+      label: Contact
+      formSchema:
+        - $formkit: text
+          name: whatsapp_number
+          label: WhatsApp Number
+          help: "Enter your full WhatsApp number with country code."
+          value: 
+
     - group: beian
       label: 备案设置
       formSchema:
