@@ -218,7 +218,8 @@
       th:styleappend="${theme.config.banner.header_background_type == 'image' ? 'background-image: url(' + theme.config.banner.header_background_image_1 + ');' : 
                         theme.config.banner.header_background_type == 'video' ? '' : 
                         'background: ' + theme.config.banner.header_background + ';'}"
-      th:data-images="${theme.config.banner.header_background_image_1 + ',' + theme.config.banner.header_background_image_2 + ',' + theme.config.banner.header_background_image_3}">
+      th:data-images="${theme.config.banner.header_background_image_1 + ',' + theme.config.banner.header_background_image_2 + ',' + theme.config.banner.header_background_image_3}"
+      th:data-type="${theme.config.banner.header_background_type}">
       <th:block th:if="${theme.config.banner.header_background_type == 'video'}">
           <video class="absolute top-0 left-0 w-full h-full object-cover"
           autoplay loop muted playsinline

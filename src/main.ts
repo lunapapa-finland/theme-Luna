@@ -155,6 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Banner container not found!');
       return;
   }
+  const bannerType = bannerContainer.getAttribute('data-type');
+  if (bannerType === 'video') {
+    console.log('Video background set. No image cycling needed.');
+    return; // Exit if the background is a video
+  }
 
   const images = bannerContainer.getAttribute('data-images')?.split(',').map(img => img.trim()) || [];
   if (images.length <= 1) {
