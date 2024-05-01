@@ -76,6 +76,8 @@ spec:
               value: manual
             - label: 图片
               value: image
+            - label: 视频
+              value: video
         - $formkit: text
           if: "$get(header_background_type).value === manual"
           name: header_background
@@ -90,6 +92,13 @@ spec:
           key: header_background_image
           label: Banner背景图片
           value: /themes/theme-ocean/assets/images/default-background.png
+        - $formkit: attachment
+          if: "$get(header_background_type).value === 'video'"
+          name: header_background_video
+          id: header_background_video
+          key: header_background_video
+          label: Banner背景视频URL
+          value: /themes/theme-ocean/assets/images/banner.mp4
         - $formkit: radio
           name: search_method
           value: page

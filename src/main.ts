@@ -102,11 +102,11 @@ export function readTime() {
   // @ts-ignore
   let str = contentHtml.innerHTML;
   return (
-    "文章共计 " +
+    "In Total " +
     removeHTMLTag(str).length +
-    " 个字，阅读完成需要 " +
+    " Words，estimated reading time: " +
     Math.ceil(removeHTMLTag(str).length / 400) +
-    " 分钟"
+    " mins"
   );
 }
 
@@ -127,3 +127,23 @@ const onScrollToTop = () => {
 };
 
 window.addEventListener("scroll", onScrollToTop);
+
+
+
+// Video resizing
+document.addEventListener('DOMContentLoaded', () => {
+  const adjustVideoSize = () => {
+      const video = document.querySelector('.full-width-height') as HTMLVideoElement;
+      if (window.innerWidth < 768) {
+          video.style.height = '50vh';
+          video.style.objectFit = 'cover';
+      } else {
+          video.style.height = '100%';
+          video.style.objectFit = 'cover';
+      }
+  };
+
+  // Apply adjustments on load and on window resize
+  adjustVideoSize();
+  window.addEventListener('resize', adjustVideoSize);
+});

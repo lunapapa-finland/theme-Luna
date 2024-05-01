@@ -214,11 +214,18 @@
         </div>
       </div>
     </div>
-    <div
-      th:if="${isHome}"
-      class="h-96 bg-cover bg-center bg-no-repeat"
-      th:styleappend="${theme.config.banner.header_background_type == 'image' ? 'background-image: url(' + theme.config.banner.header_background_image + ');' : 'background: ' + theme.config.banner.header_background + ';'}"
-    >
+    <div th:if="${isHome}" class="h-96 bg-cover bg-center bg-no-repeat relative"
+      th:styleappend="${theme.config.banner.header_background_type == 'image' ? 'background-image: url(' + theme.config.banner.header_background_image + ');' : 
+                        theme.config.banner.header_background_type == 'video' ? '' : 
+                        'background: ' + theme.config.banner.header_background + ';'}">
+      <th:block th:if="${theme.config.banner.header_background_type == 'video'}">
+          <video class="absolute top-0 left-0 w-full h-full object-cover"
+          autoplay loop muted playsinline
+          style="pointer-events:none; z-index: -1;"
+          th:src="${theme.config.banner.header_background_video}">
+            Your browser does not support the video tag.
+          </video>
+      </th:block>
       <div class="container mx-auto flex h-full flex-col items-center justify-center gap-2 py-6">
         <span
           class="sm:text-5xl text-white text-4xl"
