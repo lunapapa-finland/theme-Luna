@@ -48,8 +48,11 @@ TBD
 TBD
 
 ## Plan for Implementation
-
-- Translation from Chinese to English for the entire template.
+- Site
+  - Translation from Chinese to English for the entire template.
+- Banner
+  - Add Video Representation for configuration and representation.
+  - Add Image Looping and corresponding configuration
 - TBD
 
 ## Contributing to the Customization

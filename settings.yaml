@@ -87,11 +87,28 @@ spec:
           help: "填写 16 进制颜色"
         - $formkit: attachment
           if: "$get(header_background_type).value === image"
-          name: header_background_image
-          id: header_background_image
-          key: header_background_image
-          label: Banner背景图片
-          value: /themes/theme-ocean/assets/images/default-background.png
+          name: header_background_image_1
+          id: header_background_image_1
+          key: header_background_image_1
+          label: Banner背景图片 1
+          value: "/themes/theme-ocean/assets/images/default-background.png"
+
+        - $formkit: attachment
+          if: "$get(header_background_type).value === image"
+          name: header_background_image_2
+          id: header_background_image_2
+          key: header_background_image_2
+          label: Banner背景图片 2
+          value: "/themes/theme-ocean/assets/images/default-background.png"
+
+        - $formkit: attachment
+          if: "$get(header_background_type).value === image"
+          name: header_background_image_3
+          id: header_background_image_3
+          key: header_background_image_3
+          label: Banner背景图片 3
+          value: "/themes/theme-ocean/assets/images/default-background.png"
+
         - $formkit: attachment
           if: "$get(header_background_type).value === 'video'"
           name: header_background_video

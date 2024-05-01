@@ -147,3 +147,57 @@ document.addEventListener('DOMContentLoaded', () => {
   adjustVideoSize();
   window.addEventListener('resize', adjustVideoSize);
 });
+
+// Banner Image Looping
+document.addEventListener('DOMContentLoaded', () => {
+  const bannerContainer = document.getElementById('banner-container');
+  if (!bannerContainer) {
+      console.error('Banner container not found!');
+      return;
+  }
+
+  const images = bannerContainer.getAttribute('data-images')?.split(',').map(img => img.trim()) || [];
+  if (images.length <= 1) {
+      console.log('Not enough images to cycle.');
+      return; // No need to cycle if there are fewer than 2 images
+  }
+
+  let currentIndex = 1; // Start from the second image because the first is already set by Thymeleaf
+  let autoCycleTimeout: number | undefined; // Declare as number, initialize as undefined
+
+  function updateBackgroundImage() {
+      if (bannerContainer) {
+          bannerContainer.style.backgroundImage = `url('${images[currentIndex]}')`;
+      }
+  }
+
+  function cycleImages() {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateBackgroundImage();
+      resetAutoCycle();
+  }
+
+  function resetAutoCycle() {
+      if (autoCycleTimeout !== undefined) {
+          clearTimeout(autoCycleTimeout);
+      }
+      autoCycleTimeout = window.setTimeout(cycleImages, 5000); // Explicitly use window.setTimeout
+  }
+
+  document.getElementById('left-btn')?.addEventListener('click', () => {
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      updateBackgroundImage();
+      resetAutoCycle();
+  });
+
+  document.getElementById('right-btn')?.addEventListener('click', () => {
+      currentIndex = (currentIndex + 1) % images.length;
+      updateBackgroundImage();
+      resetAutoCycle();
+  });
+
+  autoCycleTimeout = window.setTimeout(cycleImages, 5000); // Explicitly use window.setTimeout
+});
+
+
+
