@@ -7,7 +7,7 @@ spec:
   author:
     name: Lunapapa
   description: enhanced version based on theme-ocean
-  logo: 
+  logo: https://raw.githubusercontent.com/lunapapa-finland/theme-Luna/master/luna-logo.png
   repo: https://github.com/lunapapa-finland/theme-Luna.git
   settingName: "theme-luna-setting"
   configMapName: "theme-luna-configMap"

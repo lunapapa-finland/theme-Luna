@@ -91,7 +91,7 @@ spec:
           id: header_background_image_1
           key: header_background_image_1
           label: Banner背景图片 1
-          value: "/themes/theme-ocean/assets/images/default-background.png"
+          value: "/themes/theme-Luna/assets/images/default-background.png"
 
         - $formkit: attachment
           if: "$get(header_background_type).value === image"
@@ -99,7 +99,7 @@ spec:
           id: header_background_image_2
           key: header_background_image_2
           label: Banner背景图片 2
-          value: "/themes/theme-ocean/assets/images/default-background.png"
+          value: "/themes/theme-Luna/assets/images/default-background.png"
 
         - $formkit: attachment
           if: "$get(header_background_type).value === image"
@@ -107,7 +107,7 @@ spec:
           id: header_background_image_3
           key: header_background_image_3
           label: Banner背景图片 3
-          value: "/themes/theme-ocean/assets/images/default-background.png"
+          value: "/themes/theme-Luna/assets/images/default-background.png"
 
         - $formkit: attachment
           if: "$get(header_background_type).value === 'video'"
@@ -115,7 +115,7 @@ spec:
           id: header_background_video
           key: header_background_video
           label: Banner背景视频URL
-          value: /themes/theme-ocean/assets/images/banner.mp4
+          value: /themes/theme-Luna/assets/images/banner.mp4
         - $formkit: radio
           name: search_method
           value: page

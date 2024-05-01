@@ -1,5 +1,5 @@
 {
-  "name": "@halo-dev/theme-ocean",
+  "name": "@halo-dev/theme-Luna",
   "private": true,
   "version": "1.0.0",
   "description": "Knowledgebase theme of Halo 2.0",
@@ -15,9 +15,9 @@
     "halo-theme",
     "halo-template"
   ],
-  "homepage": "https://github.com/f2ccloud/theme-ocean#readme",
+  "homepage": "https://github.com/lunapapa-finland/theme-Luna#readme",
   "bugs": {
-    "url": "https://github.com/f2ccloud/theme-ocean/issues"
+    "url": "https://github.com/lunapapa-finland/theme-Luna/issues"
   },
   "author": {
     "name": "Halo OSS Organization",
@@ -32,7 +32,7 @@
   ],
   "license": "GPL-3.0",
   "repository": {
-    "url": "https://github.com/f2ccloud/theme-ocean",
+    "url": "https://github.com/lunapapa-finland/theme-Luna",
     "type": "git"
   },
   "devDependencies": {
