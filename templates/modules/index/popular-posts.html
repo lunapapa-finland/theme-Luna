@@ -2,11 +2,10 @@
   th:if="${theme.config.index.index_tag == true && ((theme.config.index.index_recommend == 'tag' && theme.config.index.tag != null) || (theme.config.index.index_recommend == 'categories' && theme.config.index.category != null))}"
   th:with="posts = ${theme.config.index.tag != null ? postFinder.listByTag(1,6,theme.config.index.tag) :  postFinder.listByCategory(1,6,theme.config.index.category)}"
 >
-  <h2
-    class="mt-16 mb-8 text-center text-3xl font-light text-[#333] dark:text-zinc-200"
-    th:text="${theme.config.index.module_there}"
-  >
-    Recommendation
+<h2
+class="mt-16 mb-8 text-center text-4xl font-bold text-[#333] dark:text-zinc-200"
+th:text="${theme.config.index.module_three}"
+></h2>
   </h2>
   <ul class="grid grid-cols-2 gap-4 font-semibold text-gray-900 sm:grid-cols-3 sm:gap-6 xl:grid-cols-3 xl:gap-8">
     <li

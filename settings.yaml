@@ -5,14 +5,14 @@ metadata:
 spec:
   forms:
     - group: layout
-      label: layout
+      label: Layout
       formSchema:
         - $formkit: select
           name: post_list_layout
-          label: post list layout
+          label: Post List Layout
           value: single
           options:
-            - label: single
+            - label: Single Column
               value: single
             - label: Grid (one row and two columns)
               value: grid_2
@@ -24,9 +24,9 @@ spec:
           label: Image at top of article page
           value: false
           options:
-            - label: display
+            - label: Display
               value: true
-            - label: hide
+            - label: Hide
               value: false
         - $formkit: radio
           name: hide_avatar
@@ -72,7 +72,7 @@ spec:
           label: Banner Background
           value: image
           options:
-            - label: manual setting
+            - label: Manual Setting
               value: manual
             - label: Image
               value: image
@@ -154,12 +154,12 @@ spec:
           id: module_one
           key: module_one
           value: module one
-          label: name of module one
+          label: Name of Module One
           help: The first four categories are displayed by default
         - $formkit: select
           if: "$get(index_menu).value === true"
           name: module_one_layout
-          label: module one layout
+          label: Module One Layout
           value: 4
           options:
             - label: Grid (one row and three columns)
@@ -211,44 +211,44 @@ spec:
           id: module_there
           key: module_there
           value: module three
-          label: name of module three
+          label: Name of Module Three
         - $formkit: select
           if: "$get(index_tag).value === true"
           name: index_recommend
           id: index_recommend
           key: index_recommend
-          label: type of module three 
+          label: Type of Module Three 
           value: tag
           options:
-            - label: tags
+            - label: Tags
               value: tag
-            - label: category
+            - label: Categories
               value: categories
         - $formkit: tagSelect
           if: "$get(index_tag).value === true && $get(index_recommend).value === tag"
           name: tag
           id: tag
           key: tag
-          label: module three data source
+          label: Module Three Data Source
           help: The first six articles of the selected tag are displayed by default
         - $formkit: categorySelect
           if: "$get(index_tag).value === true && $get(index_recommend).value === categories"
           name: category
           id: category
           key: category
-          label: modele three data source 
+          label: Module Three Data Source
           help: The first six articles in the selected category are displayed by default.
     - group: style
-      label: style
+      label: Style
       formSchema:
         - $formkit: radio
           name: color_scheme
-          label: Default color
+          label: Default Theme
           value: light
           options:
             - label: Dark
               value: dark
-            - label: light
+            - label: Light
               value: light
         - $formkit: attachment
           name: dark_logo
@@ -271,7 +271,7 @@ spec:
           name: login_info
           id: login_info
           key: login_info
-          label: Show login information
+          label: Show Login Information
           value: false
           options:
             - label: Display
@@ -285,34 +285,34 @@ spec:
           label: Display Content
           value: all
           options:
-            - label: Avatar and name
+            - label: Avatar and Name
               value: all
-            - label: Avatar
+            - label: Avatar Only
               value: avatar
-            - label: name
+            - label: Name Only
               value: user-name
 
     - group: sidebar
-      label: 侧边栏
+      label: Sidebar
       formSchema:
         - $formkit: repeater
           name: widgets
-          label: 小部件
+          label: widgets
           value:
             - value: categories
             - value: tags
           children:
             - $formkit: select
               name: value
-              label: 部件
+              label: Components
               options:
-                - label: 站点资料
+                - label: Site Info
                   value: profile
-                - label: 热门文章
+                - label: Popular Posts
                   value: popular-posts
-                - label: 文章分类
+                - label: Categories
                   value: categories
-                - label: 文章标签
+                - label: Tags
                   value: tags
 
         - $formkit: group
@@ -322,32 +322,32 @@ spec:
           children:
             - $formkit: attachment
               name: logo
-              label: 站点资料 Logo
+              label: Side Info Logo
 
         - $formkit: repeater
           name: social_media
-          label: 社交媒体
+          label: Social Media
           value: []
           children:
             - $formkit: select
               name: icon
-              label: 图标
+              label: Icon
               options:
-                - label: 电子邮箱
+                - label: Email
                   value: i-tabler-mail
-                - label: 微信
+                - label: Wechat
                   value: i-simple-icons-wechat
-                - label: 腾讯 QQ
+                - label: QQ
                   value: i-simple-icons-tencentqq
-                - label: 新浪微博
+                - label: Weibo
                   value: i-simple-icons-sinaweibo
-                - label: 知乎
+                - label: Zhihu
                   value: i-simple-icons-zhihu
-                - label: 豆瓣
+                - label: Douban
                   value: i-simple-icons-douban
-                - label: 哔哩哔哩
+                - label: Bilibili
                   value: i-simple-icons-bilibili
-                - label: 抖音 / TikTok
+                - label: TikTok
                   value: i-simple-icons-tiktok
                 - label: Telegram
                   value: i-simple-icons-telegram
@@ -373,49 +373,49 @@ spec:
                   value: i-simple-icons-gitlab
             - $formkit: text
               name: name
-              label: 名称
+              label: Name
             - $formkit: text
               name: url
-              label: 链接
+              label: URL
               validation: "required"
             - $formkit: radio
               name: url_type
-              label: 链接类型
+              label: URL Type
               value: normal
-              help: "如果选择了图片类型，那么在访客点击之后会使用弹框的形式加载"
+              help: "If you choose Img as type, it will be loaded in the form of a pop-up box after the visitor clicks."
               options:
-                - label: 跳转链接
+                - label: Link to
                   value: normal
-                - label: 图片
+                - label: Image
                   value: image
 
     - group: footer
-      label: 页脚
+      label: Footer
       formSchema:
         - $formkit: select
           name: style
           id: style
           key: style
-          label: 页脚风格
+          label: Page Style
           value: style_1
           options:
-            - label: 风格一
+            - label: Style 1
               value: style_1
-            - label: 风格二
+            - label: Style 2
               value: style_2
-            - label: 风格三
+            - label: Style 3
               value: style_3
-            - label: 风格四
+            - label: Style 4
               value: style_4
         - $formkit: attachment
           name: logo
           label: Logo
-          help: 如果不设置，将使用站点设置的 Logo
+          help: If not set, the logo set by the site will be used.
 
         - $formkit: text
           name: title
-          label: 标题
-          help: 如果不设置，将使用站点设置的标题
+          label: Title
+          help: If not set, the logo set by the site will be used.
 
         - $formkit: textarea
           rows: 3
@@ -423,58 +423,58 @@ spec:
           id: slogan
           key: slogan
           if: "$get(style).value !== style_3"
-          label: 标语
+          label: Slogan
 
         - $formkit: menuRadio
           if: "$get(style).value === style_3"
           name: menu
           id: menu
           key: menu
-          label: 右侧菜单
+          label: Menu on the right
 
         - $formkit: repeater
           if: "$get(style).value !== style_3"
           name: menus
           id: menus
           key: menus
-          label: 菜单组
+          label: Menu Group
           value: []
           children:
             - $formkit: menuRadio
               name: name
-              label: 菜单
+              label: Menu
               validation: "required"
               
         - $formkit: attachment
           if: "$get(style).value === style_4"
           name: qrcode
           label: Qrcode
-          help: 关注二维码
+          help: Qrcode
 
         - $formkit: repeater
           name: social_media
-          label: 社交媒体
+          label: Social Media
           value: []
           children:
             - $formkit: select
               name: icon
-              label: 图标
+              label: Icon
               options:
-                - label: 电子邮箱
+                - label: Email
                   value: i-tabler-mail
-                - label: 微信
+                - label: Wechat
                   value: i-simple-icons-wechat
-                - label: 腾讯 QQ
+                - label: QQ
                   value: i-simple-icons-tencentqq
-                - label: 新浪微博
+                - label: Weibo
                   value: i-simple-icons-sinaweibo
-                - label: 知乎
+                - label: Zhihu
                   value: i-simple-icons-zhihu
-                - label: 豆瓣
+                - label: Douban
                   value: i-simple-icons-douban
-                - label: 哔哩哔哩
+                - label: Bilibili
                   value: i-simple-icons-bilibili
-                - label: 抖音 / TikTok
+                - label: TikTok
                   value: i-simple-icons-tiktok
                 - label: Telegram
                   value: i-simple-icons-telegram
@@ -500,20 +500,20 @@ spec:
                   value: i-simple-icons-gitlab
             - $formkit: text
               name: name
-              label: 名称
+              label: Name
             - $formkit: text
               name: url
-              label: 链接
+              label: URL
               validation: "required"
             - $formkit: radio
               name: url_type
-              label: 链接类型
+              label: URL Type
               value: normal
-              help: "如果选择了图片类型，那么在访客点击之后会使用弹框的形式加载"
+              help: "If you choose Img as type, it will be loaded in the form of a pop-up box after the visitor clicks."
               options:
-                - label: 跳转链接
+                - label: Link to
                   value: normal
-                - label: 图片
+                - label: Image
                   value: image
 
     - group: contact

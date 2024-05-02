@@ -1,9 +1,8 @@
 <th:block th:if="${theme.config.index.index_menu == true}">
   <h2
-    class="mt-16 mb-8 text-center text-3xl font-light text-[#333] dark:text-zinc-200"
-    th:text="${theme.config.index.module_one}"
-  >
-    Browse by Product
+  class="mt-16 mb-8 text-center text-4xl font-bold text-[#333] dark:text-zinc-200"
+  th:text="${theme.config.index.module_one}"
+  ></h2>
   </h2>
   <ul
     th:with="categories = ${categoryFinder.listAsTree()},list_layout=${theme.config.index.module_one_layout}"

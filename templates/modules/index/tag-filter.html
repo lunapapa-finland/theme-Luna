@@ -1,9 +1,8 @@
 <th:block th:if="${theme.config.index.index_theme == true} and ${not #lists.isEmpty(theme.config.index.menu)}">
   <h2
-    class="mt-16 mb-8 text-center text-3xl font-light text-[#333] dark:text-zinc-200"
-    th:text="${theme.config.index.module_two}"
-  >
-    Common Themes
+  class="mt-16 mb-8 text-center text-4xl font-bold text-[#333] dark:text-zinc-200"
+  th:text="${theme.config.index.module_two}"
+  ></h2>
   </h2>
   <div class="w-full cursor-pointer overflow-hidden rounded-xl p-3 transition-all duration-500">
     <div class="mx-auto max-w-screen-lg divide-y divide-zinc-200 px-4 sm:px-6 md:px-8 xl:max-w-screen-xl">
