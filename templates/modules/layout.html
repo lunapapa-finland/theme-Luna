@@ -70,8 +70,12 @@
       <th:block th:replace="${footer}" />
     </th:block>
       <!-- WhatsApp Icon -->
-    <a th:href="@{'https://wa.me/' + ${theme.config.contact.whatsapp_number}}" class="whatsapp_float" target="_blank" style="display:none;" id="whatsappIcon">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-    </a>
+      <a th:if="${theme.config.contact.enable_whatsapp}"
+      th:href="@{'https://wa.me/' + ${theme.config.contact.whatsapp_number}}" 
+      class="whatsapp_float" 
+      target="_blank" 
+      id="whatsappIcon">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+      </a>
   </body>
 </html>

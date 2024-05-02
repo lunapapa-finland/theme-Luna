@@ -48,18 +48,19 @@ TBD
 TBD
 
 ## Plan for Implementation
-- Site
-  - Translation from Chinese to English for the entire template.
+- Website
+  - Translate the entire template from Chinese to English.
 - Banner
-  - Add Video Representation for configuration and representation.
-  - Add Image Looping and corresponding configuration
-  - Add Whatsapp Support
-- TBD
-  - L: AI digest
-  - M: Share Page on article
-  - M: 404 page
-  - H: template for product publishing
-  - H: Refer to Banner 左侧 for embedding block
+  - Incorporate a video demonstration for configuration and presentation.
+  - Implement image looping with corresponding configuration settings.
+  - Integrate WhatsApp support.
+  - Enhance the front page's Category Block and include annotation images linked directly to menu items.
+- To be determined (TBD)
+  - Low Priority: AI digest
+  - Medium Priority: Enable sharing of articles
+  - Medium Priority: Customize the 404 error page
+  - High Priority: Develop a template for product publishing
+  - High Priority: Refer to the left section of the Banner for embedding blocks.
 
 ## Contributing to the Customization
 

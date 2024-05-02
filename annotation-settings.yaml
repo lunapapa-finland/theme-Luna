@@ -1,3 +1,7 @@
+apiVersion: v1alpha1
+kind: AnnotationSetting
+metadata:
+  generateName: annotation-setting-
 spec:
   targetRef:
     group: content.halo.run
@@ -5,8 +9,21 @@ spec:
   formSchema:
     - $formkit: "color"
       name: "color"
-      label: "字体颜色"
+      label: "Display Color"
+      help: "Front-end Color for the Category Block"
+---
+
 apiVersion: v1alpha1
 kind: AnnotationSetting
 metadata:
-  generateName: annotation-
+  generateName: annotation-setting-
+spec:
+  targetRef:
+    group: ""
+    kind: MenuItem
+  formSchema:
+    - $formkit: "attachment"
+      name: "icon"
+      label: "Link Icon in the index page"
+      help: "Front-end link icon for tag in index page"
+---
