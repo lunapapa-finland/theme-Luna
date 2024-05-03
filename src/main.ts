@@ -229,3 +229,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Type Effect for banner title
+document.addEventListener("DOMContentLoaded", function() {
+  const bannerTitle = document.getElementById("bannerTitle") as HTMLElement | null;
+  if (bannerTitle) {
+    const customTitle: string = bannerTitle.textContent?.trim() || "";
+    bannerTitle.textContent = ""; // Clear the text content initially
+    typeEffect(bannerTitle, customTitle);
+  }
+});
+
+function typeEffect(element: HTMLElement, text: string): void {
+  let index: number = 0;
+  const typingSpeed: number = 100; // Adjust typing speed as desired
+
+  function type(): void {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+      setTimeout(type, typingSpeed);
+    }
+  }
+
+  type();
+}
+

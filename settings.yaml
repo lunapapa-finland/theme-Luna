@@ -135,13 +135,13 @@ spec:
           help: "Select more than three tags and automatically hide excess tags"
                 
     - group: index
-      label: Index
+      label: Home Page
       formSchema:
         - $formkit: radio
           name: index_menu
           id: index_menu
           key: index_menu
-          label: Whether to display module one
+          label: Whether to display block one on the page
           value: false
           options:
             - label: Display
@@ -154,8 +154,8 @@ spec:
           id: module_one
           key: module_one
           value: module one
-          label: Name of Module One
-          help: The first four categories are displayed by default
+          label: Name of Block One
+          help: The data source of the block one is from 'Category'. The first four categories are displayed by default, you can change it from 3 to 5.
         - $formkit: select
           if: "$get(index_menu).value === true"
           name: module_one_layout
@@ -168,12 +168,11 @@ spec:
               value: 4
             - label: Grid (one row and five columns)
               value: 5
-          help: By default, one row and four columns are displayed.
         - $formkit: radio
           name: index_theme
           id: index_theme
           key: index_theme
-          label: Whether to display module two
+          label: Whether to display block two
           value: false
           options:
             - label: Display
@@ -186,19 +185,19 @@ spec:
           id: module_two
           key: module_two
           value: Module Two
-          label: Name of Module Two
+          label: Name of Block Two
         - $formkit: menuRadio
           if: "$get(index_theme).value === true"
           name: menu
           id: menu
           key: menu
           label: Module Two Data Source
-          help: The first four first-level menu items are displayed by default
+          help: The data source of the block two is from 'Menu'. The Chosen menu will be displayed for level one and level two. The icon of the level-one menu can be set in the configuration of menu itself.
         - $formkit: radio
           name: index_tag
           id: index_tag
           key: index_tag
-          label: Whether to display module three
+          label: Whether to display block three
           value: false
           options:
             - label: Display
@@ -211,13 +210,13 @@ spec:
           id: module_there
           key: module_there
           value: module three
-          label: Name of Module Three
+          label: Name of Block Three
         - $formkit: select
           if: "$get(index_tag).value === true"
           name: index_recommend
           id: index_recommend
           key: index_recommend
-          label: Type of Module Three 
+          label: Data source of Module Three 
           value: tag
           options:
             - label: Tags
@@ -229,15 +228,15 @@ spec:
           name: tag
           id: tag
           key: tag
-          label: Module Three Data Source
-          help: The first six articles of the selected tag are displayed by default
+          label: Selected Tags
+          help: Multiple tags can be selected, while the first six articles within the selected tags are displayed by default
         - $formkit: categorySelect
           if: "$get(index_tag).value === true && $get(index_recommend).value === categories"
           name: category
           id: category
           key: category
-          label: Module Three Data Source
-          help: The first six articles in the selected category are displayed by default.
+          label: Selected Category
+          help: Only one category can be selected, while the first six articles within the selected category are displayed by default
     - group: style
       label: Style
       formSchema:
