@@ -99,6 +99,17 @@ body {
 
 
 
+/* Banner Menu Css */
+div.flex.items-center ul.menu-dropdown {
+  position: absolute;
+  z-index: 10;
+  width: 200px;
+}
 
-
-/*WhatsApp*/
+div.flex.items-center ul.second-level {
+  position: absolute;
+  left: 100%;
+  top: 0;
+  min-width: 200px;
+  white-space: nowrap;
+}

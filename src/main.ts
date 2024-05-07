@@ -133,20 +133,27 @@ window.addEventListener("scroll", onScrollToTop);
 // Video resizing
 document.addEventListener('DOMContentLoaded', () => {
   const adjustVideoSize = () => {
-      const video = document.querySelector('.full-width-height') as HTMLVideoElement;
+    // Assert the element as HTMLVideoElement
+    const video = document.querySelector('#banner-container video') as HTMLVideoElement;
+    if (video) {
       if (window.innerWidth < 768) {
-          video.style.height = '50vh';
-          video.style.objectFit = 'cover';
+        video.style.height = '50vh';
+        video.style.objectFit = 'cover';
       } else {
-          video.style.height = '100%';
-          video.style.objectFit = 'cover';
+        video.style.height = '100%';
+        video.style.objectFit = 'cover';
       }
+    } else {
+      console.log('No video element found');
+    }
   };
 
   // Apply adjustments on load and on window resize
   adjustVideoSize();
   window.addEventListener('resize', adjustVideoSize);
 });
+
+
 
 // Banner Image Looping
 document.addEventListener('DOMContentLoaded', () => {
