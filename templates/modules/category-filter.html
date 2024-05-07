@@ -1,34 +1,18 @@
-<ul id="filters" class="flex flex-wrap gap-2">
-  <li>
+<div class="flex flex-col gap-4">
+  <h2 class="inline-flex items-center gap-2 text-base text-zinc-900 dark:text-zinc-50">
+    <span class="i-tabler-category text-lg"></span>
+    All Categories
+  </h2>
+  <div class="flex flex-wrap gap-2" th:with="categories = ${categoryFinder.listAll()}">
     <a
-      href="/archives"
-      class="inline-flex cursor-pointer items-center rounded px-2 py-1 font-medium text-zinc-500 transition-all hover:bg-zinc-100 hover:text-zinc-900 hover:shadow-sm dark:text-zinc-200 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
-      th:classappend="${category == null} ? '!text-zinc-900 !bg-zinc-100 dark:!bg-zinc-700 dark:!text-zinc-50'"
+      th:each="categoryItem,categoryStat: ${categories}"
+      th:href="@{${categoryItem.status.permalink}}"
+      th:title="${categoryItem.spec.displayName}"
+      class="rounded bg-gray-100 px-1 py-0.5 text-sm hover:bg-gray-200 hover:underline dark:bg-zinc-600 dark:text-zinc-50 dark:hover:bg-zinc-700 dark:hover:text-zinc-100"
+      th:classappend="(${category} and ${category.metadata.name == categoryItem.metadata.name}) or (not ${category} and ${categoryStat.index == 0}) ? '!bg-gray-200 dark:!bg-zinc-700 dark:!text-zinc-100 ring-2 ring-gray-300 dark:ring-zinc-600' : ''"
     >
-      <span class="truncate text-base"> All </span>
+      <th:block th:text="${categoryItem.spec.displayName}" />
+      <sup th:text="${categoryItem.status.visiblePostCount}"></sup>
     </a>
-  </li>
-  <th:block th:with="categories = ${categoryFinder.listAsTree()}">
-    <th:block th:each="categoryItem,categoryStat : ${categories}">
-      <li
-        x-data="dropdown"
-        @mouseenter="open()"
-        @mouseleave="close()"
-        class="relative inline-flex cursor-pointer items-center gap-1 rounded px-2 font-medium text-zinc-500 transition-all hover:bg-zinc-100 hover:text-zinc-900 hover:shadow-sm dark:text-zinc-200 dark:hover:bg-zinc-700 dark:hover:text-zinc-50"
-        th:classappend="(${category} and ${category.metadata.name == categoryItem.metadata.name})? '!text-zinc-900 !bg-zinc-100 dark:!bg-zinc-700 dark:!text-zinc-50'"
-      >
-        <span class="truncate text-base">
-          <a
-            th:href="@{${categoryItem.status.permalink}}"
-            th:text="${categoryItem.spec.displayName}"
-            th:style="'color:'+${#annotations.getOrDefault(categoryItem, 'color', '#0c7be0')}"
-          >
-          </a>
-          <th:block th:if="${not #lists.isEmpty(categoryItem.children)}">
-            <th:block th:replace="~{modules/category-sub :: single(categories=${categoryItem.children})}"></th:block>
-          </th:block>
-        </span>
-      </li>
-    </th:block>
-  </th:block>
-</ul>
+  </div>
+</div>

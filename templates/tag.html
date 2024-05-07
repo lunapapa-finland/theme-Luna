@@ -1,70 +1,56 @@
 <!DOCTYPE html>
-<html
-  xmlns:th="https://www.thymeleaf.org"
-  th:replace="~{modules/layout :: html(title = 'Tag: ' + ${tag.spec.displayName} + ' - ' + ${site.title}, header = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null, isSidebar = true)}"
->
-  <th:block th:fragment="content">
-    <div class="rounded-xl bg-white p-4 shadow transition-all duration-500 hover:shadow-md dark:bg-zinc-800">
-      <th:block th:replace="~{modules/tag-filter}" />
-    </div>
+<html xmlns:th="https://www.thymeleaf.org"
+  th:replace="~{modules/layout :: html(title = 'Tag - ' + ${tag.spec.displayName} + ' - ' + ${site.title}, header = null, content = ~{::content}, head = null, footer = null, sidebar = null, contentClass = null, isSidebar = true)}">
+<th:block th:fragment="content">
+  <div class="rounded-xl bg-white p-4 shadow transition-all duration-500 hover:shadow-md dark:bg-zinc-800">
+    <th:block th:replace="~{modules/tag-filter}" />
+  </div>
+      
+  <div id="post-list" th:if="${posts.total gt 0}"
+    th:with="postItems=${posts.items},list_layout=${theme.config.layout.post_list_layout}"
+    class="mt-10 grid grid-cols-1 gap-6"
+    th:classappend="${list_layout == 'grid_3' ? 'md:grid-cols-2 xl:grid-cols-3' : ''} + ' ' + ${list_layout == 'grid_2' ? 'md:grid-cols-2' : ''}">
+    <th:block th:each="post : ${postItems}">
+      <th:block
+        th:replace="~{modules/post-card :: post-card(${post},true,true,true,${list_layout == 'single' ? 'column' : 'row'})}" />
+    </th:block>
+  </div>
 
-    <div
-      id="post-list"
-      th:if="${posts.total gt 0}"
-      th:with="postItems=${posts.items},list_layout=${theme.config.layout.post_list_layout}"
-      class="mt-6 grid grid-cols-1 gap-6"
-      th:classappend="${list_layout == 'grid_3' ? 'md:grid-cols-2 xl:grid-cols-3' : ''} + ' ' + ${list_layout == 'grid_2' ? 'md:grid-cols-2' : ''}"
-    >
-      <th:block th:each="post : ${postItems}">
-        <th:block
-          th:replace="~{modules/post-card :: post-card(${post},true,true,true,${list_layout == 'single' ? 'column' : 'row'})}"
-        />
-      </th:block>
-    </div>
-
-    <div class="mt-9 flex items-center justify-end" th:if="${posts.hasPrevious() || posts.hasNext()}">
-      <ul th:attr="x-data=|pagination(${posts.page},${posts.totalPages},7)|" class="flex gap-2">
-        <li th:if="${posts.hasPrevious()}">
-          <a
-            class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
-            th:href="@{${posts.prevUrl}}"
-          >
-            Prev
-          </a>
+  <div class="mt-9 flex items-center justify-end" th:if="${posts.hasPrevious() || posts.hasNext()}">
+    <ul th:attr="x-data=|pagination(${posts.page},${posts.totalPages},7)|" class="flex gap-2">
+      <li th:if="${posts.hasPrevious()}">
+        <a class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
+          th:href="@{${posts.prevUrl}}">
+          Prev
+        </a>
+      </li>
+      <template x-for="item in items">
+        <li>
+          <template x-if="item === '...'">
+            <span class="rounded border border-[#3296ef] bg-[#3296ef] py-2 px-3 text-sm tabular-nums text-white"
+              x-text="item">
+            </span>
+          </template>
+          <template x-if="item !== '...'">
+            <a class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
+              x-text="item" :class="{'border-[#3296ef] bg-[#3296ef] text-white':page===item}"
+              th:attr="'x-bind:href'=|'/tags/${tag.spec.slug}/page/'+item|">
+            </a>
+          </template>
         </li>
-        <template x-for="item in items">
-          <li>
-            <template x-if="item === '...'">
-              <span
-                class="rounded border border-[#3296ef] bg-[#3296ef] py-2 px-3 text-sm tabular-nums text-white"
-                x-text="item"
-              >
-              </span>
-            </template>
-            <template x-if="item !== '...'">
-              <a
-                class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
-                x-text="item"
-                :class="{'border-[#3296ef] bg-[#3296ef] text-white':page===item}"
-                th:attr="'x-bind:href'=|'/tags/${tag.spec.slug}/page/'+item|"
-              >
-              </a>
-            </template>
-          </li>
-        </template>
-        <li th:if="${posts.hasNext()}">
-          <a
-            class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
-            th:href="@{${posts.nextUrl}}"
-          >
-            Next
-          </a>
-        </li>
-      </ul>
-    </div>
+      </template>
+      <li th:if="${posts.hasNext()}">
+        <a class="rounded border border-[#686B74] py-2 px-3 text-sm tabular-nums text-[#686B74] hover:border-[#3296ef] hover:bg-[#3296ef] hover:text-white"
+          th:href="@{${posts.nextUrl}}">
+          Next
+        </a>
+      </li>
+    </ul>
+  </div>
 
-    <div th:if="${posts.total == 0}" class="mt-6 flex items-center justify-center">
-      <span class="text-sm font-light text-zinc-600 dark:text-zinc-200">This tag currently has no articles.</span>
-    </div>
-  </th:block>
+  <div th:if="${posts.total == 0}" class="mt-6 flex items-center justify-center">
+    <span class="text-sm font-light text-zinc-600 dark:text-zinc-200">This tag currently has no articles.</span>
+  </div>
+</th:block>
+
 </html>
