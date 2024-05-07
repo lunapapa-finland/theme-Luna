@@ -7,15 +7,18 @@
             <a href="/" class="inline-flex h-full items-center">
               <template x-if="currentValue && currentValue == 'dark'">
                 <img th:if="${not #strings.isEmpty(theme.config.style.dark_logo)}"
-                  th:src="${theme.config.style.dark_logo}" th:alt="dark_logo" class="max-h-16 w-full" />
+                  th:src="${theme.config.style.dark_logo}" th:alt="dark_logo"
+                  class="h-auto max-h-16 md:max-w-xs w-auto" /> <!-- Responsive sizing -->
               </template>
               <template x-if="currentValue && currentValue == 'light'">
                 <img th:if="${not #strings.isEmpty(theme.config.style.light_logo)}"
-                  th:src="${theme.config.style.light_logo}" th:alt="light_logo" class="max-h-16 w-full" />
+                  th:src="${theme.config.style.light_logo}" th:alt="light_logo"
+                  class="h-auto max-h-16 md:max-w-xs w-auto" /> <!-- Responsive sizing -->
               </template>
               <img
                 th:if="${#strings.isEmpty(theme.config.style.dark_logo) and #strings.isEmpty(theme.config.style.light_logo) and not #strings.isEmpty(site.logo)}"
-                th:src="${site.logo}" th:alt="Logo" class="max-h-16 w-full" />
+                th:src="${site.logo}" th:alt="Logo"
+                class="h-auto max-h-16 md:max-w-xs w-auto" /> <!-- Responsive sizing -->
               <span
                 th:if="${#strings.isEmpty(theme.config.style.dark_logo) and #strings.isEmpty(theme.config.style.light_logo) and #strings.isEmpty(site.logo)}"
                 id="site-title" class="text-lg font-medium text-zinc-900 dark:text-zinc-100"
@@ -23,6 +26,7 @@
             </a>
           </div>
         </div>
+        
         <div class="flex items-center">
           <ul th:if="${menu != null} and ${not #lists.isEmpty(menu.menuItems)}"
             class="hidden items-center gap-6 sm:flex">
