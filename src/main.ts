@@ -261,3 +261,7 @@ function typeEffect(element: HTMLElement, text: string): void {
   type();
 }
 
+// fix the position of the scroll, if you wanna enable it, uncomment the following two lines
+// import { ScrollManager } from './ScrollManager';
+// new ScrollManager();  // Instantiates and sets up event listeners without assigning to a variable
+
